@@ -1,0 +1,198 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* === NEON CASINO 5-COLOR PALETTE === */
+  
+  /* Primary - Hot Pink/Magenta (Main Brand, Highlights, Key Actions) */
+  --color-primary: #FF10F0;
+  --color-primary-light: #FF5AF5;
+  --color-primary-dark: #CC0DC0;
+  --color-primary-glow: rgba(255, 16, 240, 0.6);
+  
+  /* Secondary - Electric Cyan (Supporting Elements, Info, Links) */
+  --color-secondary: #00FFFF;
+  --color-secondary-light: #5AFFFF;
+  --color-secondary-dark: #00CCCC;
+  --color-secondary-glow: rgba(0, 255, 255, 0.5);
+  
+  /* Accent - Neon Purple (CTAs, Buttons, Active States) */
+  --color-accent: #B026FF;
+  --color-accent-light: #C966FF;
+  --color-accent-dark: #8A1FCC;
+  --color-accent-glow: rgba(176, 38, 255, 0.5);
+  
+  /* Background - Deep Dark (Surfaces, Cards, Containers) */
+  --color-bg-primary: #050510;
+  --color-bg-secondary: #0a0a0f;
+  --color-bg-tertiary: #1a0b2e;
+  --color-bg-card: rgba(10, 10, 15, 0.9);
+  --color-bg-elevated: rgba(26, 11, 46, 0.8);
+  
+  /* Text - High Contrast (Readable on Dark) */
+  --color-text-primary: #FFFFFF;
+  --color-text-secondary: #E0E0E0;
+  --color-text-tertiary: #A0A0A0;
+  --color-text-muted: #666666;
+  
+  /* Borders & Dividers */
+  --color-border-primary: var(--color-primary);
+  --color-border-secondary: var(--color-secondary);
+  --color-border-accent: var(--color-accent);
+  --color-border-muted: rgba(255, 255, 255, 0.1);
+  
+  /* Status Colors (Optional Extensions) */
+  --color-success: #00FF88;
+  --color-warning: #FFD700;
+  --color-error: #FF3366;
+  
+  /* Shadow & Glow Effects */
+  --shadow-primary: 0 0 20px var(--color-primary-glow);
+  --shadow-secondary: 0 0 20px var(--color-secondary-glow);
+  --shadow-accent: 0 0 20px var(--color-accent-glow);
+  --shadow-card: 0 4px 20px rgba(0, 0, 0, 0.5);
+  
+  /* Legacy Variables (for backwards compatibility) */
+  --neon-pink: var(--color-primary);
+  --neon-cyan: var(--color-secondary);
+  --neon-purple: var(--color-accent);
+  --neon-blue: #00D9FF;
+  --bg-dark: var(--color-bg-primary);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-bg-primary);
+  color: var(--color-text-primary);
+  font-family: 'VT323', monospace;
+  overflow-x: hidden;
+}
+
+/* Typography Overrides */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Press Start 2P', cursive;
+  color: var(--color-text-primary);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-bg-secondary);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-accent);
+  border: 2px solid var(--color-secondary);
+}
+
+/* Animations */
+@keyframes scanline {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100%); }
+}
+
+@keyframes flicker {
+  0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+    opacity: 1;
+    filter: brightness(1);
+  }
+  20%, 24%, 55% {
+    opacity: 0.5;
+    filter: brightness(0.5);
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 10px currentColor, 0 0 20px currentColor; }
+  50% { box-shadow: 0 0 20px currentColor, 0 0 40px currentColor; }
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); opacity: 0; }
+  50% { opacity: 1; }
+  100% { transform: translateY(-100px); opacity: 0; }
+}
+
+@keyframes grid-move {
+  0% { transform: perspective(500px) rotateX(60deg) translateY(0); }
+  100% { transform: perspective(500px) rotateX(60deg) translateY(40px); }
+}
+
+@keyframes chromatic {
+  0% { text-shadow: 2px 0 var(--color-primary), -2px 0 var(--color-secondary); }
+  25% { text-shadow: -2px 0 var(--color-primary), 2px 0 var(--color-secondary); }
+  50% { text-shadow: 2px 0 var(--color-primary), -2px 0 var(--color-secondary); }
+  75% { text-shadow: -2px 0 var(--color-primary), 2px 0 var(--color-secondary); }
+  100% { text-shadow: 2px 0 var(--color-primary), -2px 0 var(--color-secondary); }
+}
+
+/* Utility Classes */
+.font-pixel {
+  font-family: 'Press Start 2P', cursive;
+}
+
+.font-terminal {
+  font-family: 'VT323', monospace;
+}
+
+.text-shadow-neon {
+  text-shadow: 0 0 5px currentColor, 0 0 10px currentColor, 0 0 20px currentColor;
+}
+
+.box-shadow-neon {
+  box-shadow: 0 0 5px currentColor, 0 0 10px currentColor, inset 0 0 5px currentColor;
+}
+
+.scanlines::before {
+  content: " ";
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+  z-index: 50;
+  background-size: 100% 2px, 3px 100%;
+  pointer-events: none;
+}
+
+.scanlines::after {
+  content: " ";
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: rgba(18, 16, 16, 0.1);
+  opacity: 0;
+  z-index: 50;
+  pointer-events: none;
+  animation: flicker 0.15s infinite;
+}
+
+.animate-flicker {
+  animation: flicker 3s infinite alternate;
+}
+
+.animate-chromatic:hover {
+  animation: chromatic 0.3s infinite;
+}
+
+/* Hide scrollbar for mobile nav */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
