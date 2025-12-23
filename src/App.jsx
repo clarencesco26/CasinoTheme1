@@ -17,6 +17,7 @@ function App() {
   ]
 
   const handleGameClick = (game) => {
+    // TODO: Replace with proper modal/toast notification in production
     alert(`Opening ${game.name}... 🎰`)
   }
 
