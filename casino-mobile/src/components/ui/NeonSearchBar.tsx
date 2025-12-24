@@ -22,14 +22,14 @@ export default defineComponent({
       <div class="relative w-full max-w-2xl mx-auto mb-12 group">
         {/* Glow Background */}
         <div
-          class={`absolute -inset-1 bg-gradient-to-r from-[var(--color-primary)] via-[var(--color-secondary)] to-[var(--color-accent)] rounded-lg opacity-20 blur transition duration-500 ${
-            isFocused.value ? 'opacity-60 blur-md' : ''
+          class={`absolute -inset-1 bg-[var(--color-secondary)] rounded-lg opacity-20 transition duration-500 ${
+            isFocused.value ? 'opacity-60' : ''
           }`}
         />
 
         <div class="relative flex items-center">
           <div class="absolute left-4 text-[var(--color-secondary)] animate-pulse">
-            <Search size={20} class="drop-shadow-[0_0_5px_var(--color-secondary)]" />
+            <Search size={20} />
           </div>
 
           <input
@@ -39,15 +39,15 @@ export default defineComponent({
             onFocus={() => (isFocused.value = true)}
             onBlur={() => (isFocused.value = false)}
             class={`
-              w-full bg-transparent text-[var(--color-text-primary)] font-pixel text-sm md:text-base
+              w-full text-white font-pixel text-sm md:text-base
               py-4 pl-12 pr-4
               border-2 outline-none
               placeholder:text-[var(--color-text-muted)] placeholder:font-terminal placeholder:text-lg
               transition-all duration-300
               ${
                 isFocused.value
-                  ? 'border-[var(--color-primary)] shadow-[0_0_15px_var(--color-primary-glow),inset_0_0_10px_var(--color-primary-glow)]'
-                  : 'border-[var(--color-secondary)]/50 hover:border-[var(--color-secondary)] shadow-[0_0_5px_var(--color-secondary-glow)]'
+                  ? 'border-[var(--color-primary)] bg-[var(--color-bg-secondary)]'
+                  : 'border-[var(--color-secondary)]/50 hover:border-[var(--color-secondary)] bg-transparent'
               }
             `}
           />

@@ -33,16 +33,30 @@ export default defineComponent({
     delay: {
       type: Number,
       default: 0
+    },
+    href: {
+      type: String,
+      default: ''
+    },
+    redirectDomain: {
+      type: String,
+      default: ''
     }
   },
   setup(props) {
-    const colorMap = {
-      pink: 'var(--color-primary)',
-      cyan: 'var(--color-secondary)',
-      purple: 'var(--color-accent)'
-    }
+    // Always use neon blue for all cards
+    const baseColor = 'var(--color-secondary)'
 
-    const baseColor = colorMap[props.color]
+    // Build the full URL with redirect domain
+    const fullUrl = props.redirectDomain 
+      ? `${props.redirectDomain}${props.href}`
+      : props.href
+
+    const handleVisitWebsite = () => {
+      if (fullUrl) {
+        window.open(fullUrl, '_blank', 'noopener,noreferrer')
+      }
+    }
 
     return () => (
       <div
@@ -54,7 +68,7 @@ export default defineComponent({
           class="
             relative
             h-[400px] md:h-[540px] lg:h-[560px]
-            bg-[var(--color-bg-card)] backdrop-blur-md
+            bg-[var(--color-bg-card)]
             border-2 border-transparent
             p-3 md:p-4 lg:p-6
             flex flex-col gap-2 md:gap-3 lg:gap-4
@@ -63,38 +77,22 @@ export default defineComponent({
             overflow-hidden
           "
           style={{
-            boxShadow: `0 0 15px ${baseColor}40`,
             borderColor: baseColor
           }}
         >
           {/* Neon Sign Header */}
           <div class="text-center mb-2 relative flex-shrink-0">
-            <div
-              class="absolute inset-0 blur-xl opacity-50"
-              style={{ backgroundColor: baseColor }}
-            />
             <h3
-              class="relative font-pixel text-xs md:text-lg lg:text-2xl tracking-tighter uppercase animate-flicker leading-tight"
-              style={{
-                color: '#fff',
-                textShadow: `
-                  0 0 5px #fff,
-                  0 0 10px #fff,
-                  0 0 20px ${baseColor},
-                  0 0 40px ${baseColor},
-                  0 0 80px ${baseColor}
-                `
-              }}
+              class="relative font-pixel text-xs md:text-lg lg:text-2xl tracking-tighter uppercase leading-tight text-white"
             >
               {props.name}
             </h3>
-            <div class="h-0.5 w-full mt-1 bg-gradient-to-r from-transparent via-white to-transparent opacity-50" />
           </div>
 
           {/* Game Image Placeholder */}
           <div class="relative w-full aspect-video flex-shrink-0 overflow-hidden rounded-sm mb-2">
             <div
-              class="absolute inset-0 bg-gradient-to-br from-[var(--color-bg-tertiary)] to-[var(--color-bg-secondary)]"
+              class="absolute inset-0 bg-[var(--color-bg-tertiary)]"
               style={{
                 backgroundImage: `
                   repeating-linear-gradient(
@@ -112,7 +110,7 @@ export default defineComponent({
                 class="font-pixel text-xs md:text-sm opacity-50"
                 style={{ color: baseColor }}
               >
-                GAME IMAGE
+                CASINO WEBSITE
               </div>
             </div>
             {/* Glowing border */}
@@ -151,15 +149,17 @@ export default defineComponent({
                 size={12}
                 fill={i < props.rating ? 'var(--color-warning)' : 'none'}
                 color={i < props.rating ? 'var(--color-warning)' : 'var(--color-text-muted)'}
-                class={i < props.rating ? 'drop-shadow-[0_0_5px_var(--color-warning)]' : ''}
               />
             ))}
           </div>
 
           {/* CTA */}
-          <div class="flex-shrink-0">
-            <PixelButton variant={props.color} class="w-full text-[8px] md:text-xs lg:text-sm py-2 px-2">
-              PLAY NOW
+          <div class="flex-shrink-0" onClick={handleVisitWebsite}>
+            <PixelButton 
+              variant="red" 
+              class="w-full text-[8px] md:text-xs lg:text-sm py-2 px-2"
+            >
+              VISIT WEBSITE
             </PixelButton>
           </div>
 

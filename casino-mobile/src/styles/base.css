@@ -7,30 +7,30 @@
 :root {
   /* === NEON CASINO 5-COLOR PALETTE === */
   
-  /* Primary - Hot Pink/Magenta (Main Brand, Highlights, Key Actions) */
-  --color-primary: #FF10F0;
-  --color-primary-light: #FF5AF5;
-  --color-primary-dark: #CC0DC0;
-  --color-primary-glow: rgba(255, 16, 240, 0.6);
+  /* Primary - Neon Red (Main Brand, Highlights, Key Actions) */
+  --color-primary: #FF0040;
+  --color-primary-light: #FF4D7D;
+  --color-primary-dark: #CC0033;
+  --color-primary-glow: rgba(255, 0, 64, 0.6);
   
-  /* Secondary - Electric Cyan (Supporting Elements, Info, Links) */
-  --color-secondary: #00FFFF;
-  --color-secondary-light: #5AFFFF;
-  --color-secondary-dark: #00CCCC;
-  --color-secondary-glow: rgba(0, 255, 255, 0.5);
+  /* Secondary - Neon Blue (Supporting Elements, Info, Links) */
+  --color-secondary: #00BFFF;
+  --color-secondary-light: #5AD3FF;
+  --color-secondary-dark: #0099CC;
+  --color-secondary-glow: rgba(0, 191, 255, 0.5);
   
   /* Accent - Neon Purple (CTAs, Buttons, Active States) */
-  --color-accent: #B026FF;
-  --color-accent-light: #C966FF;
-  --color-accent-dark: #8A1FCC;
-  --color-accent-glow: rgba(176, 38, 255, 0.5);
+  --color-accent: #9D00FF;
+  --color-accent-light: #C147FF;
+  --color-accent-dark: #7700CC;
+  --color-accent-glow: rgba(157, 0, 255, 0.5);
   
   /* Background - Deep Dark (Surfaces, Cards, Containers) */
-  --color-bg-primary: #050510;
-  --color-bg-secondary: #0a0a0f;
-  --color-bg-tertiary: #1a0b2e;
-  --color-bg-card: rgba(10, 10, 15, 0.9);
-  --color-bg-elevated: rgba(26, 11, 46, 0.8);
+  --color-bg-primary: #010A29;
+  --color-bg-secondary: #021640;
+  --color-bg-tertiary: #032257;
+  --color-bg-card: rgba(1, 10, 41, 0.9);
+  --color-bg-elevated: rgba(2, 22, 64, 0.8);
   
   /* Text - High Contrast (Readable on Dark) */
   --color-text-primary: #FFFFFF;
@@ -45,21 +45,30 @@
   --color-border-muted: rgba(255, 255, 255, 0.1);
   
   /* Status Colors (Optional Extensions) */
-  --color-success: #00FF88;
+  --color-success: #00FF66;
   --color-warning: #FFD700;
-  --color-error: #FF3366;
+  --color-error: #FF0040;
+  
+  /* Neon Green (Additional Color) */
+  --color-green: #00FF66;
+  --color-green-light: #5AFF99;
+  --color-green-dark: #00CC52;
+  --color-green-glow: rgba(0, 255, 102, 0.5);
   
   /* Shadow & Glow Effects */
   --shadow-primary: 0 0 20px var(--color-primary-glow);
   --shadow-secondary: 0 0 20px var(--color-secondary-glow);
   --shadow-accent: 0 0 20px var(--color-accent-glow);
+  --shadow-green: 0 0 20px var(--color-green-glow);
   --shadow-card: 0 4px 20px rgba(0, 0, 0, 0.5);
   
   /* Legacy Variables (for backwards compatibility) */
   --neon-pink: var(--color-primary);
   --neon-cyan: var(--color-secondary);
   --neon-purple: var(--color-accent);
-  --neon-blue: #00D9FF;
+  --neon-blue: var(--color-secondary);
+  --neon-red: var(--color-primary);
+  --neon-green: var(--color-green);
   --bg-dark: var(--color-bg-primary);
 }
 
@@ -68,7 +77,7 @@ html {
 }
 
 body {
-  background-color: var(--color-bg-primary);
+  background-color: #010A29;
   color: var(--color-text-primary);
   font-family: 'VT323', monospace;
   overflow-x: hidden;
@@ -107,6 +116,34 @@ h1, h2, h3, h4, h5, h6 {
     opacity: 0.5;
     filter: brightness(0.5);
   }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slide-up-scale {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.3s ease-out;
+}
+
+.animate-slide-up-scale {
+  animation: slide-up-scale 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 @keyframes pulse-glow {

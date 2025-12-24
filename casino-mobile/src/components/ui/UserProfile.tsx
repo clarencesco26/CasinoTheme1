@@ -27,10 +27,10 @@ export default defineComponent({
   },
   setup(props) {
     return () => (
-      <div class="flex items-center gap-4 bg-[var(--color-bg-secondary)]/40 backdrop-blur-md p-2 rounded-lg border border-[var(--color-accent)]/50 shadow-[0_0_10px_var(--color-accent-glow)] group hover:border-[var(--color-accent)] transition-all duration-300">
+      <div class="flex items-center gap-4 bg-[var(--color-bg-secondary)]/40 p-2 rounded-lg border border-[var(--color-accent)]/50 group hover:border-[var(--color-accent)] transition-all duration-300">
         {/* Avatar Section */}
         <div class="relative">
-          <div class="w-12 h-12 bg-[var(--color-bg-primary)] border-2 border-[var(--color-secondary)] flex items-center justify-center overflow-hidden shadow-[0_0_10px_var(--color-secondary)]">
+          <div class="w-12 h-12 bg-[var(--color-bg-primary)] border-2 border-[var(--color-secondary)] flex items-center justify-center overflow-hidden">
             <User size={24} class="text-[var(--color-secondary)]" />
             <div class="absolute inset-0 bg-gradient-to-tr from-[var(--color-secondary)]/20 to-transparent" />
           </div>
@@ -42,7 +42,7 @@ export default defineComponent({
         {/* Stats Section */}
         <div class="flex flex-col gap-1">
           <div class="flex items-center justify-between gap-4">
-            <span class="font-pixel text-xs text-[var(--color-accent)] drop-shadow-[0_0_5px_var(--color-accent)]">
+            <span class="font-pixel text-xs text-[var(--color-secondary)]">
               {props.username}
             </span>
           </div>
@@ -60,7 +60,7 @@ export default defineComponent({
           {/* Credits */}
           <div class="flex items-center gap-1 text-[var(--color-primary)]">
             <Coins size={10} class="animate-pulse" />
-            <span class="font-terminal text-sm tracking-wider drop-shadow-[0_0_5px_var(--color-primary)]">
+            <span class="font-terminal text-sm tracking-wider">
               {props.credits.toLocaleString()} CR
             </span>
           </div>
