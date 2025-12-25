@@ -5,49 +5,49 @@
 @tailwind utilities;
 
 :root {
-  /* === NEON CASINO 5-COLOR PALETTE === */
+  /* === NEW COLOR PALETTE === */
   
-  /* Primary - Neon Red (Main Brand, Highlights, Key Actions) */
-  --color-primary: #FF0040;
-  --color-primary-light: #FF4D7D;
-  --color-primary-dark: #CC0033;
-  --color-primary-glow: rgba(255, 0, 64, 0.6);
+  /* Primary - Electric Green (CTAs, Highlights, Icons) */
+  --color-primary: #4ADE80;
+  --color-primary-light: #6EE7A0;
+  --color-primary-dark: #22C55E;
+  --color-primary-glow: rgba(74, 222, 128, 0.6);
   
-  /* Secondary - Neon Blue (Supporting Elements, Info, Links) */
-  --color-secondary: #00BFFF;
-  --color-secondary-light: #5AD3FF;
-  --color-secondary-dark: #0099CC;
-  --color-secondary-glow: rgba(0, 191, 255, 0.5);
+  /* Secondary - Electric Green (for consistency) */
+  --color-secondary: #4ADE80;
+  --color-secondary-light: #6EE7A0;
+  --color-secondary-dark: #22C55E;
+  --color-secondary-glow: rgba(74, 222, 128, 0.5);
   
-  /* Accent - Neon Purple (CTAs, Buttons, Active States) */
-  --color-accent: #9D00FF;
-  --color-accent-light: #C147FF;
-  --color-accent-dark: #7700CC;
-  --color-accent-glow: rgba(157, 0, 255, 0.5);
+  /* Accent - Electric Green (CTAs, Buttons, Active States) */
+  --color-accent: #4ADE80;
+  --color-accent-light: #6EE7A0;
+  --color-accent-dark: #22C55E;
+  --color-accent-glow: rgba(74, 222, 128, 0.5);
   
-  /* Background - Deep Dark (Surfaces, Cards, Containers) */
-  --color-bg-primary: #010A29;
-  --color-bg-secondary: #021640;
-  --color-bg-tertiary: #032257;
-  --color-bg-card: rgba(1, 10, 41, 0.9);
-  --color-bg-elevated: rgba(2, 22, 64, 0.8);
+  /* Background - Deep Charcoal & Soft Black (Surfaces, Cards, Containers) */
+  --color-bg-primary: #121212;
+  --color-bg-secondary: #1C1C1C;
+  --color-bg-tertiary: #242424;
+  --color-bg-card: rgba(28, 28, 28, 0.9);
+  --color-bg-elevated: rgba(28, 28, 28, 0.8);
   
-  /* Text - High Contrast (Readable on Dark) */
+  /* Text - Pure White & Muted Grey (Readable on Dark) */
   --color-text-primary: #FFFFFF;
-  --color-text-secondary: #E0E0E0;
-  --color-text-tertiary: #A0A0A0;
-  --color-text-muted: #666666;
+  --color-text-secondary: #A1A1AA;
+  --color-text-tertiary: #A1A1AA;
+  --color-text-muted: #A1A1AA;
   
   /* Borders & Dividers */
   --color-border-primary: var(--color-primary);
   --color-border-secondary: var(--color-secondary);
   --color-border-accent: var(--color-accent);
-  --color-border-muted: rgba(255, 255, 255, 0.1);
+  --color-border-muted: rgba(161, 161, 170, 0.2);
   
   /* Status Colors (Optional Extensions) */
-  --color-success: #00FF66;
+  --color-success: #4ADE80;
   --color-warning: #FFD700;
-  --color-error: #FF0040;
+  --color-error: #EF4444;
   
   /* Neon Green (Additional Color) */
   --color-green: #00FF66;
